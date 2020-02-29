@@ -8,6 +8,7 @@ async function dbConnector (fastify, options) {
 
     const client = await MongoClient.connect(url, options);
     fastify.decorate('mongo', client);
+    //Need this type from Mongo client since we are using that as our external ID
     fastify.decorate('ObjectID', ObjectID);
 }
 

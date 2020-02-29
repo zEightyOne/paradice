@@ -1,4 +1,4 @@
-const { NotFound, ServiceUnavailable, BadRequest } = require('http-errors')
+const { NotFound, ServiceUnavailable, BadRequest } = require('http-errors');
 async function routes (fastify, options) {
     const db = fastify.mongo.db('paradice');
     const collection = db.collection('dice');
@@ -7,20 +7,37 @@ async function routes (fastify, options) {
         schema: {
             response: {
                 200: {
-                    type: 'object',
-                    properties: {
-                        goodbye: { type: 'string' }
+                    "type": "object",
+                    "properties": {
+                        "_id": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "sides": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "patternProperties": {
+                                    "^.*$": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "additionalProperties": false
+                            }
+                        }
                     }
                 }
             }
         }
-    }
+    };
 
-    fastify.get('/', opts, async (request, reply) => {
+    fastify.get('/', async (request, reply) => {
         return { Status: 'OK' }
     });
 
-    fastify.get('/dice/:id', async (request, reply) => {
+    fastify.get('/dice/:id', opts, async (request, reply) => {
 
         let o_id;
         try {
