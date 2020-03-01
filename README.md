@@ -1,6 +1,15 @@
 # PARADISE
 Service which provides simulated dice results for a given # of n-sided dice
 
+###Temporary set up instructions.
+
+1) Install Docker on your machine
+2) Run the following: ```docker run -d --name dice-mongo -d mongo:latest -P```
+3) From a Mongo client of your choice add ```db: paradice``` and ```collection: dice```
+4) From the commandline run ```node server.sj```
+5) Use the example below to add your first dice (I use postman)
+
+
 ## Routes
 
 ```text
