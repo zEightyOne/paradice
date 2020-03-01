@@ -4,11 +4,14 @@ const fastify = require('fastify')({
 
 
 fastify.register(require('./data/mongo-db-connector'), {
-    url: 'mongodb://0.0.0.0:27017'
+    url: 'mongodb://0.0.0.0:27017',
+    useUnifiedTopology: true
 });
 
 fastify.register(require('./routes/get-routes'));
 fastify.register(require('./routes/post-routes'));
+fastify.register(require('./routes/delete-routes'));
+
 
 
 const start = async () => {
