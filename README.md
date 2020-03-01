@@ -64,8 +64,9 @@ Successful response:
     "id": "5e5b0666267d7589fbd15dad"
 }
 ```
-
-### POST /dice/:id
+```text
+POST /dice/:id
+```
 
 Response is validated against the following schema:
 
@@ -94,4 +95,8 @@ Response is validated against the following schema:
         }
       }
     };
+```
+
+```
+POST /dice/:id
 ```
