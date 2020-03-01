@@ -1,5 +1,5 @@
 const { NotFound, ServiceUnavailable, BadRequest } = require('http-errors');
-async function routes (fastify, options) {
+async function getRoutes (fastify, options) {
     const db = fastify.mongo.db('paradice');
     const collection = db.collection('dice');
 
@@ -59,4 +59,4 @@ async function routes (fastify, options) {
     })
 }
 
-module.exports = routes;
+module.exports = getRoutes;
