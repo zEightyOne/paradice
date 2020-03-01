@@ -3,33 +3,35 @@ Service which provides simulated dice results for a given # of n-sided dice
 
 ## Routes
 
-### POST /dice
+```text
+POST /dice
+```
 
 Validates against the following schema
 
 ```json
-        schema: {
-                body: {
-                    "type": "object",
-                    "properties": {
-                        "name": {
-                            "type": "string"
-                        },
-                        "sides": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "patternProperties": {
-                                    "^.*$": {
-                                        "type": "integer"
-                                    }
-                                },
-                                "additionalProperties": false
-                            }
-                        }
+  schema: {
+    body: {
+      "type": "object",
+        "properties": {
+        "name": {
+          "type": "string"
+          },
+            "sides": {
+            "type": "array",
+              "items": {
+                "type": "object",
+                "patternProperties": {
+                  "^.*$": {
+                    "type": "integer"
                     }
-                }
+                  },
+                "additionalProperties": false
+              }
+            }
+          }
         }
+      }
     };
 ```
 
@@ -68,31 +70,28 @@ Successful response:
 Response is validated against the following schema:
 
 ```json
-        schema: {
-            response: {
-                200: {
-                    "type": "object",
-                    "properties": {
-                        "_id": {
-                            "type": "string"
-                        },
-                        "name": {
-                            "type": "string"
-                        },
-                        "sides": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "patternProperties": {
-                                    "^.*$": {
-                                        "type": "integer"
-                                    }
-                                },
-                                "additionalProperties": false
-                            }
-                        }
+   schema: {
+    response: {
+     200: {
+      "type": "object",
+        "properties": {
+        "name": {
+          "type": "string"
+          },
+            "sides": {
+            "type": "array",
+              "items": {
+                "type": "object",
+                "patternProperties": {
+                  "^.*$": {
+                    "type": "integer"
                     }
-                }
+                  },
+                "additionalProperties": false
+              }
             }
+          }
         }
+      }
+    };
 ```
