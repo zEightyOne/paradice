@@ -1,7 +1,7 @@
 # PARADISE
 Service which provides simulated dice results for a given # of n-sided dice
 
-###Temporary set up instructions.
+### Temporary set up instructions.
 
 1) Install Docker on your machine
 2) Run the following: ```docker run -d --name dice-mongo -d mongo:latest -P```
